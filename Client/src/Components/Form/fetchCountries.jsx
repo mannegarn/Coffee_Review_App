@@ -8,7 +8,7 @@ export default function useFetchCountries() {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch("http://localhost:3000/countries");
+        const response = await fetch("https://coffee-review-app.onrender.com/countries");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

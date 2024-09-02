@@ -14,7 +14,7 @@ export default function ReviewForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:3000/reviews", {
+    const response = await fetch("https://coffee-review-app.onrender.com/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -7,11 +7,11 @@ function Home() {
 
   useEffect(() => {
     const fetchReviews = async () => {
-      const reviewsResponse = await fetch("http://localhost:3000/reviews");
+      const reviewsResponse = await fetch("https://coffee-review-app.onrender.com/reviews");
       const reviewsData = await reviewsResponse.json();
 
       const countryPromises = reviewsData.map((review) =>
-        fetch(`http://localhost:3000/countries/${review.country_id}`).then(
+        fetch(`https://coffee-review-app.onrender.com/countries/${review.country_id}`).then(
           (response) => response.json()
         )
       );
@@ -30,7 +30,7 @@ function Home() {
   }, []);
 
   const handleDelete = async (id) => {
-    const response = await fetch(`http://localhost:3000/reviews/${id}`, {
+    const response = await fetch(`https://coffee-review-app.onrender.com/reviews/${id}`, {
       method: "DELETE",
     });
 

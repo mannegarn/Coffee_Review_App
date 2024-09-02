@@ -1,19 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Reviews from "./components/Reviews";
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import reviews from "./Routes/reviews.js";
+import countries from "./Routes/countries.js";
 
-function App() {
-  return (
-    <Router>
-      <Header />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Reviews />} />
-        {/* Add routes for submit and search pages later */}
-      </Routes>
-    </Router>
-  );
-}
+dotenv.config();
 
-export default App;
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.use("/reviews", reviews);
+app.use("/countries", countries);
+
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
